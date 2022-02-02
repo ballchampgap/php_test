@@ -28,14 +28,14 @@ $query = mysqli_query($conn, $sql);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 </head>
-
 <body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <div class="loading"></div>
     <div class="container my-5">
         <div class="card">
             <div class="card-body">
-                <h3>---</h3>
+            <h3 class="text-center text-info"><p id="displayName"></p></h3>
                 <form id="mainfrom" action = "frminsert.php" method="POST">
                     <div class="form">
                         <div class="form-group">
@@ -62,6 +62,7 @@ $query = mysqli_query($conn, $sql);
                         <div class="form-group">
                         <input type= "hidden" name="lat" >
                         <input type= "hidden" name="lon" >
+                        <input type= "hidden" name="pname" >
                         <button id="btn" type="submit" class="btn btn-primary" >Save</button>
                         
                     </div>

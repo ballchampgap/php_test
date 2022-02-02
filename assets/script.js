@@ -1,6 +1,21 @@
+//ไลน์
+function runApp() {
+    liff.getProfile().then(profile => {
+        document.getElementsByName("pictureUrl").src = profile.pictureUrl;
+        document.getElementsByName("pname") = profile.displayName;
+    }).catch(err => console.error(err));
+}
+liff.init({ liffId: "1656823507-ygeoXjzO" }, () => {
+    if (liff.isLoggedIn()) {
+        runApp()
+    } else {
+        liff.login();
+    }
+}, err => console.error(err.code, error.message));
+
+
+
 //Get_GPS
-
-
 window.onload = function() {
     var lat, lon = null;
 
@@ -10,6 +25,8 @@ window.onload = function() {
             lon = position.coords.longitude;
             document.getElementsByName("lat")[0].value = lat;
             document.getElementsByName("lon")[0].value = lon;
+            var elem = document.querySelector('.loading');
+            elem.parentNode.removeChild(elem);
         });
     }
 
