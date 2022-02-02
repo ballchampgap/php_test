@@ -1,3 +1,20 @@
+//Get_GPS
+
+
+window.onload = function() {
+    var lat, lon = null;
+
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition((position) => {
+            lat = position.coords.latitude;
+            lon = position.coords.longitude;
+            document.getElementsByName("lat")[0].value = lat;
+            document.getElementsByName("lon")[0].value = lon;
+        });
+    }
+
+
+}
 $(function() {
     var pest_epicObject = $('#pest_epic');
     var plantecoObject = $('#planteco');

@@ -5,7 +5,20 @@ $query = mysqli_query($conn, $sql);
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
+<style>
+    .loading {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  background: url("https://cdn.discordapp.com/attachments/773251194344570923/934464155644211210/XOsX.gif")
+    no-repeat rgb(249, 249, 249);
+  background-position: center;
+  background-size: 100px;
+}
+</style>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,7 +36,7 @@ $query = mysqli_query($conn, $sql);
         <div class="card">
             <div class="card-body">
                 <h3>---</h3>
-                <form action = "frminsert.php" method="POST">
+                <form id="mainfrom" action = "frminsert.php" method="POST">
                     <div class="form">
                         <div class="form-group">
                         <label for="pest_eco">เลือกเรื่องที่จะแจ้ง ?</label>
@@ -47,8 +60,10 @@ $query = mysqli_query($conn, $sql);
                             </select>
                         </div>
                         <div class="form-group">
-                        <input type="submit" value="Save">
-                        <input type="reset" value="Clear">
+                        <input type= "hidden" name="lat" >
+                        <input type= "hidden" name="lon" >
+                        <button id="btn" type="submit" class="btn btn-primary" >Save</button>
+                        
                     </div>
                     </div>
                 </form>
