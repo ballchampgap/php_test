@@ -16,7 +16,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 
 
@@ -24,10 +24,10 @@ SET time_zone = "+00:00";
 
 
 CREATE TABLE `planteco` (
-  `id` int(5) NOT NULL,
-  `name_th` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
-  `pest_epic_id` int(5) NOT NULL DEFAULT '0'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `id` int(11) NOT NULL,
+  `name_th` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `pest_epic_id` int(11) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `planteco`
@@ -52,10 +52,10 @@ INSERT INTO `planteco` (`id`, `name_th`, `pest_epic_id`) VALUES
 --
 
 CREATE TABLE `data_pest_epic` (
-  `id` varchar(5) COLLATE utf8_bin NOT NULL,
-  `name_th` varchar(150) COLLATE utf8_bin NOT NULL,
+  `id` int(11) NOT NULL,
+  `name_th` varchar(255) CHARACTER SET utf8 NOT NULL,
   `planteco_id` int(11) NOT NULL DEFAULT '0'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='InnoDB free: 8192 kB';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `data_pest_epic`
@@ -126,9 +126,9 @@ INSERT INTO `data_pest_epic` (`id`, `name_th`, `planteco_id`) VALUES
 
 
 CREATE TABLE `pest_epic` (
-  `id` int(5) NOT NULL,
-  `name_th` varchar(150) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `id` int(11) NOT NULL,
+  `name_th` varchar(255) CHARACTER SET utf8 NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `pest_epic`
@@ -168,13 +168,13 @@ ALTER TABLE `pest_epic`
 -- AUTO_INCREMENT for table `planteco`
 --
 ALTER TABLE `planteco`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 
 -- AUTO_INCREMENT for table `pest_epic`
 --
 ALTER TABLE `pest_epic`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
