@@ -13,10 +13,10 @@ $query = mysqli_query($conn, $sql);
   top: 0;
   left: 0;
   z-index: 9999;
-  background: url("https://cdn.discordapp.com/attachments/773251194344570923/934464155644211210/XOsX.gif")
+  background: url("https://i.gifer.com/YCZH.gif")
     no-repeat rgb(249, 249, 249);
   background-position: center;
-  background-size: 100px;
+  background-size: 100%;
 }
 </style>
 <head>
@@ -63,7 +63,7 @@ $query = mysqli_query($conn, $sql);
                         <input type= "hidden" name="lat" >
                         <input type= "hidden" name="lon" >
                         <input type= "hidden" name="pname" >
-                        <button id="btn" type="submit" class="btn btn-primary" >Save</button>
+                        <button id="btn" type="submit" class="btn btn-primary mt-3" >Save</button>
                         
                     </div>
                     </div>
