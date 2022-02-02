@@ -1,17 +1,17 @@
-//ไลน์
-function runApp() {
-    liff.getProfile().then(profile => {
-        document.getElementsByName("pictureUrl").src = profile.pictureUrl;
-        document.getElementsByName("pname") = profile.displayName;
-    }).catch(err => console.error(err));
-}
-liff.init({ liffId: "1656823507-ygeoXjzO" }, () => {
-    if (liff.isLoggedIn()) {
-        runApp()
-    } else {
-        liff.login();
-    }
-}, err => console.error(err.code, error.message));
+// //ไลน์
+// function runApp() {
+//     liff.getProfile().then(profile => {
+//         document.getElementsByName("pictureUrl").src = profile.pictureUrl;
+//         document.getElementsByName("pname") = profile.displayName;
+//     }).catch(err => console.error(err));
+// }
+// liff.init({ liffId: "1656823507-ygeoXjzO" }, () => {
+//     if (liff.isLoggedIn()) {
+//         runApp()
+//     } else {
+//         liff.login();
+//     }
+// }, err => console.error(err.code, error.message));
 
 
 
