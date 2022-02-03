@@ -12,19 +12,6 @@
 //         liff.login();
 //     }
 // }, err => console.error(err.code, error.message));
-function runApp() {
-    liff.getProfile().then(profile => {
-        document.getElementById("pictureUrl").src = profile.pictureUrl;
-        document.getElementById("displayName").innerHTML = '<b>DisplayName:</b> ' + profile.displayName;
-    }).catch(err => console.error(err));
-}
-liff.init({ liffId: "1656861185-pBP33VqE" }, () => {
-    if (liff.isLoggedIn()) {
-        runApp()
-    } else {
-        liff.login();
-    }
-}, err => console.error(err.code, error.message));
 
 //Get_GPS
 window.onload = function() {
@@ -41,6 +28,19 @@ window.onload = function() {
         });
     }
 
+    function runApp() {
+        liff.getProfile().then(profile => {
+            document.getElementById("pictureUrl").src = profile.pictureUrl;
+            document.getElementById("displayName").innerHTML = '<b>DisplayName:</b> ' + profile.displayName;
+        }).catch(err => console.error(err));
+    }
+    liff.init({ liffId: "1656861185-pBP33VqE" }, () => {
+        if (liff.isLoggedIn()) {
+            runApp()
+        } else {
+            liff.login();
+        }
+    }, err => console.error(err.code, error.message));
 
 }
 $(function() {
