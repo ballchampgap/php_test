@@ -31,6 +31,7 @@ window.onload = function() {
     function runApp() {
         liff.getProfile().then(profile => {
             document.getElementById("pictureUrl").src = profile.pictureUrl;
+            document.getElementById("displayName").innerHTML = '<b>DisplayName:</b> ' + profile.displayName;
             document.getElementsByName("pname")[0].value = profile.displayName;
         }).catch(err => console.error(err));
     }
