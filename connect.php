@@ -1,11 +1,9 @@
 <?php
 	
-  $host = "us-cdbr-east-05.cleardb.net";
-  $username = "bd2ef0188b7319";
-  $password = "30fe5f89";
-  $db_name = "heroku_7b702cc5061883a";
-  
-
+  $host = "localhost";
+	$username = "root";
+	$password = "";
+	$db_name = "cs_project_end";
 
     $conn = mysqli_connect($host, $username, $password, $db_name); //เชื่อมต่อกับฐานข้อมูล
     mysqli_set_charset($conn, "utf8");

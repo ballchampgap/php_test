@@ -64,6 +64,7 @@ $query = mysqli_query($conn, $sql);
                         <input type= "hidden" name="lon" >
                         <input type= "hidden" name="pname" >
                         <button id="btn" type="submit" class="btn btn-primary mt-3" >Save</button>
+                        <button id="btn" type="reset" class="btn btn-danger mt-3" >Clear</button>
                         
                     </div>
                     </div>
