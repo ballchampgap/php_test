@@ -75,19 +75,7 @@ $query = mysqli_query($conn, $sql);
             </div>
         </div>
     </div>
-   <script> function runApp() {
-    liff.getProfile().then(profile => {
-        document.getElementById("pictureUrl").src = profile.pictureUrl;
-        document.getElementById("displayName").innerHTML = '<b>DisplayName:</b> ' + profile.displayName;
-    }).catch(err => console.error(err));
-}
-liff.init({ liffId: "1656861185-pBP33VqE" }, () => {
-    if (liff.isLoggedIn()) {
-        runApp()
-    } else {
-        liff.login();
-    }
-}, err => console.error(err.code, error.message));</script>
+   <!-- <script> </script> -->
 
     <script src="assets/jquery.min.js"></script>
     <script src="assets/script.js"></script>
