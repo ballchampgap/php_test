@@ -1,20 +1,3 @@
-//ไลน์
-function runApp() {
-    liff.getProfile().then(profile => {
-        document.getElementsByName("pictureUrl").src = profile.pictureUrl;
-        document.getElementsByName("pname") = profile.displayName;
-    }).catch(err => console.error(err));
-}
-liff.init({ liffId: "1656855696-RKaGGljN" }, () => {
-    if (liff.isLoggedIn()) {
-        runApp()
-    } else {
-        liff.login();
-    }
-}, err => console.error(err.code, error.message));
-
-
-
 //Get_GPS
 window.onload = function() {
     var lat, lon = null;
@@ -29,7 +12,6 @@ window.onload = function() {
             elem.parentNode.removeChild(elem);
         });
     }
-
 
 }
 $(function() {
@@ -63,4 +45,17 @@ $(function() {
             });
         });
     });
-});
+}); //ไลน์
+function runApp() {
+    liff.getProfile().then(profile => {
+        document.getElementsByName("pictureUrl").src = profile.pictureUrl;
+        document.getElementsByName("pname") = profile.displayName;
+    }).catch(err => console.error(err));
+}
+liff.init({ liffId: "1656855696-RKaGGljN" }, () => {
+    if (liff.isLoggedIn()) {
+        runApp()
+    } else {
+        liff.login();
+    }
+}, err => console.error(err.code, error.message));
