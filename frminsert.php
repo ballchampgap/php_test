@@ -38,10 +38,10 @@ ini_set('display_errors', 1);
 
 	$sToken = "82DUKC5VGzG7PQw9RAbrLUooaA6oNTNSVrJ4LVXiLie";
     if ($pest_epic == 1){
-        $sMessage = "เเจ้งเตือนเรื่องโรคระบาด\n";
+        $sMessage = "📌เเจ้งเตือนเรื่องโรคระบาด\n";
     }
     else{
-        $sMessage = "เเจ้งเตือนเรื่องศัตรูพืช\n";
+        $sMessage = "📌เเจ้งเตือนเรื่องศัตรูพืช\n";
     }
     $sMessage .= "👨‍💼ชื่อ:  " . $pname . " \n";
   
@@ -53,7 +53,6 @@ ini_set('display_errors', 1);
     else{
         $sMessage .= "ชื่อศัตรูพืช:  " . $data_pest_epic_name_th . " \n";
     }
-        $sMessage .= "📌พิกัด:  " . $lat ." , "  . $lon . " \n";
    
 	$chOne = curl_init(); 
 	curl_setopt( $chOne, CURLOPT_URL, "https://notify-api.line.me/api/notify"); 
