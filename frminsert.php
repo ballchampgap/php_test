@@ -30,6 +30,44 @@ if ($pest_epic == 1) {
     VALUE ('$pname', '$planteco_name_th', '$data_pest_epic_name_th', '$lat','$lon')";
     $resultInsert = mysqli_query($conn, $sql);
 }
+//แจ้งเตือน
+ini_set('display_errors', 1);
+	ini_set('display_startup_errors', 1);
+	error_reporting(E_ALL);
+	date_default_timezone_set("Asia/Bangkok");
+
+	$sToken = "82DUKC5VGzG7PQw9RAbrLUooaA6oNTNSVrJ4LVXiLie";
+    if ($pest_epic == 1){
+        $sMessage = "เเจ้งเตือนเรื่องโรคระบาด\n";
+    }
+    else{
+        $sMessage = "เเจ้งเตือนเรื่องศัตรูพืช\n";
+    }
+    $sMessage .= "👨‍💼ชื่อ:  " . $pname . " \n";
+  
+     $sMessage .= "ชนิดของพืชเศรษฐกิจ:  " . $planteco_name_th . " \n";
+    
+     if ($pest_epic == 1){
+        $sMessage .= "ชื่อโรคระบาด:  " . $data_pest_epic_name_th . " \n";
+    }
+    else{
+        $sMessage .= "ชื่อศัตรูพืช:  " . $data_pest_epic_name_th . " \n";
+    }
+        $sMessage .= "📌พิกัด:  " . $lat ." , "  . $lon . " \n";
+   
+	$chOne = curl_init(); 
+	curl_setopt( $chOne, CURLOPT_URL, "https://notify-api.line.me/api/notify"); 
+	curl_setopt( $chOne, CURLOPT_SSL_VERIFYHOST, 0); 
+	curl_setopt( $chOne, CURLOPT_SSL_VERIFYPEER, 0); 
+	curl_setopt( $chOne, CURLOPT_POST, 1); 
+	curl_setopt( $chOne, CURLOPT_POSTFIELDS, "message=".$sMessage); 
+	$headers = array( 'Content-type: application/x-www-form-urlencoded', 'Authorization: Bearer '.$sToken.'', );
+	curl_setopt($chOne, CURLOPT_HTTPHEADER, $headers); 
+	curl_setopt( $chOne, CURLOPT_RETURNTRANSFER, 1); 
+	$result = curl_exec( $chOne ); 
+
+	curl_close( $chOne );   
+
 //บันทึกสำเร็จแจ้งเตือนและกระโดดกลับไปหน้าฟอร์ม
 if ($resultInsert) {
     echo "<script>
