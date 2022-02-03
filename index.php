@@ -39,11 +39,11 @@ $query = mysqli_query($conn, $sql);
             <div class="card-body">
             <div class="text-center">
             <img id="pictureUrl" width="50%" class="rounded"></div><br>
-            <h3 class="text-center text-info"><p name="pname"></p></h3>
+            <h3 class="text-center text-info"><p id="pname"></p></h3>
                 <form id="mainfrom" action = "frminsert.php" method="POST">
                     <div class="form">
                         <div class="form-group">
-                        <label for="pest_eco">เลือกเรื่องที่จะแจ้ง ?</label><br>
+                        <label for="pest_eco">เลือกเรื่องที่จะแจ้ง ?</label>
                             <select name="pest_epic_id" id="pest_epic" class="form-control" required>
                                 <option value="">--choose1--</option>
                                 <?php while($result = mysqli_fetch_assoc($query)): ?>
@@ -52,13 +52,13 @@ $query = mysqli_query($conn, $sql);
                             </select>
                         </div>
                         <div class="form-group">
-                        <label for="planteco">เลือกพืชเศรษฐกิจ ?</label><br>
+                        <label for="planteco">เลือกพืชเศรษฐกิจ ?</label>
                             <select name="planteco_id" id="planteco" class="form-control" required>
                                 <option value="">--choose2--</option>
                             </select>
                         </div>
                         <div class="form-group">
-                        <label for="data_pest_epic">เป็นอะไร ?</label><br>
+                        <label for="data_pest_epic">เป็นอะไร ?</label>
                             <select name="data_pest_epic_id" id="data_pest_epic" class="form-control" required>
                                 <option value="">--choose3--</option>
                             </select>
