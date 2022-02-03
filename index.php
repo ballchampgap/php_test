@@ -36,6 +36,7 @@ $query = mysqli_query($conn, $sql);
     <div class="container my-5">
         <div class="card">
             <div class="card-body">
+            <img id="pictureUrl" width="50%" class="rounded">
             <h3 class="text-center text-info"><p id="displayName"></p></h3>
                 <form id="mainfrom" action = "frminsert.php" method="POST">
                     <div class="form">
