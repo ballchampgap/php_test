@@ -31,6 +31,7 @@ $query = mysqli_query($conn, $sql);
 }
 </style>
 <body>
+<div id="login">
     <div class="loading"></div>
     <div class="container my-5">
         <div class="card">
@@ -66,6 +67,7 @@ $query = mysqli_query($conn, $sql);
                         <button id="btn" type="submit" class="btn btn-primary mt-3" >Save</button>
                         <button id="btn" type="reset" class="btn btn-danger mt-3" >Clear</button>
                         
+                    </div>
                     </div>
                     </div>
                 </form>
