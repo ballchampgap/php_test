@@ -39,7 +39,7 @@ $query = mysqli_query($conn, $sql);
             <div class="card-body">
             <div class="text-center">
             <img id="pictureUrl" width="50%" class="rounded"></div><br>
-            <h3 class="text-center text-info"><p id="displayName"></p></h3>
+            <h3 class="text-center text-info">ชื่อผู้แจ้ง:<p name="displayName"></p></h3>
                 <form id="mainfrom" action = "frminsert.php" method="POST">
                     <div class="form">
                         <div class="form-group">
