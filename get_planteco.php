@@ -1,3 +1,8 @@
+<html>
+<head>
+    <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+</head>
+<body>
 <?php
 include('connect.php');
 $sql = "SELECT * FROM planteco WHERE pest_epic_id={$_GET['pest_epic_id']}";
@@ -7,3 +12,6 @@ while($result = mysqli_fetch_assoc($query)) {
 array_push($json, $result);
 }
 echo json_encode($json);
+?>
+</body>
+</html>
