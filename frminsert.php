@@ -22,11 +22,11 @@ while ($row = $data_pest_epic_a->fetch_assoc()) {
 }
 
 if ($pest_epic == 1) {
-    $sql = "INSERT INTO epidemic (yname,plant_type,data_epidemic,lat,lon)
+    $sql = "INSERT INTO epidemics (yname,plant_type,data_epidemic,lat,lon)
     VALUE ('$pname', '$planteco_name_th', '$data_pest_epic_name_th','$lat','$lon')";
     $resultInsert = mysqli_query($conn, $sql);
 } else {
-    $sql = "INSERT INTO pest (yname,plant_type,data_pest,lat,lon)
+    $sql = "INSERT INTO pests (yname,plant_type,data_pest,lat,lon)
     VALUE ('$pname', '$planteco_name_th', '$data_pest_epic_name_th', '$lat','$lon')";
     $resultInsert = mysqli_query($conn, $sql);
 }
