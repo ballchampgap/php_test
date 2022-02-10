@@ -31,7 +31,7 @@ $query = mysqli_query($conn, $sql);
   background-size: 100%;
 }
 </style>
-<body class="bg-primary">
+<body>
 <div id="login">
     <div class="loading"></div>
     <div class="container my-5">
