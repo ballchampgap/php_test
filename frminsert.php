@@ -10,6 +10,7 @@ $planteco = $_POST['planteco_id'];
 $data_pest_epic = $_POST['data_pest_epic_id'];
 $lat = $_POST['lat'];
 $lon = $_POST['lon'];
+$descrip = $_POST['descrip'];
 // query planteco name_th
 $plant = mysqli_query($conn, "SELECT * FROM planteco WHERE id = '$planteco'");
 while ($row = $plant->fetch_assoc()) {
@@ -22,12 +23,12 @@ while ($row = $data_pest_epic_a->fetch_assoc()) {
 }
 
 if ($pest_epic == 1) {
-    $sql = "INSERT INTO epidemics (yname,plant_type,data_epidemic,lat,lon)
-    VALUE ('$pname', '$planteco_name_th', '$data_pest_epic_name_th','$lat','$lon')";
+    $sql = "INSERT INTO epidemics (yname,plant_type,data_epidemic,lat,lon,description)
+    VALUE ('$pname', '$planteco_name_th', '$data_pest_epic_name_th','$lat','$lon','$descrip')";
     $resultInsert = mysqli_query($conn, $sql);
 } else {
-    $sql = "INSERT INTO pests (yname,plant_type,data_pest,lat,lon)
-    VALUE ('$pname', '$planteco_name_th', '$data_pest_epic_name_th', '$lat','$lon')";
+    $sql = "INSERT INTO pests (yname,plant_type,data_pest,lat,lon,description)
+    VALUE ('$pname', '$planteco_name_th', '$data_pest_epic_name_th', '$lat','$lon','$descrip')";
     $resultInsert = mysqli_query($conn, $sql);
 }
 //แจ้งเตือน
