@@ -71,9 +71,8 @@ $query = mysqli_query($conn, $sql);
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="username" class="text-info" rows="3">รายละเอียด</label><br>
-                                <textarea name="descrip" type="text" id="descrip" class="form-control"
-                                    required> </textarea><br>
+                                <label for="descrip" rows="3">รายละเอียด (ไม่บังคับ)</label><br>
+                                <textarea name="descrip" type="text" id="descrip" class="form-control"> </textarea><br>
                             </div>
                             <div class="form-group">
                                 <input type="hidden" name="lat">
