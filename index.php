@@ -72,7 +72,7 @@ $query = mysqli_query($conn, $sql);
                             </div>
                             <div class="form-group">
                                 <label for="descrip" rows="3">รายละเอียด (ไม่บังคับ)</label><br>
-                                <textarea name="descrip" type="text" id="descrip" class="form-control"> </textarea><br>
+                                <textarea name="descrip" type="text" id="descrip" class="form-control" required> </textarea><br>
                             </div>
                             <div class="form-group">
                                 <input type="hidden" name="lat">
