@@ -33,11 +33,11 @@ function getAddress($latitude, $longitude)
         // send http request
         $geocode = file_get_contents($url);
         $json = json_decode($geocode);
-        $address = $json->results[0]->formatted_address;
-        return $address;
+        $addressqe = $json->results[0]->formatted_address;
+        return $addressqe;
 }
 
-echo $addressqlp;
+
 if ($pest_epic == 1) {
     $sql = "INSERT INTO epidemics (yname,plant_type,data_epidemic,lat,lon,description,address)
     VALUE ('$pname', '$planteco_name_th', '$data_pest_epic_name_th','$latitude','$longitude','$descrip','$result')";
