@@ -22,7 +22,7 @@ while ($row = $data_pest_epic_a->fetch_assoc()) {
     $data_pest_epic_name_th = $row['name_th'];
 }
   
-$geocode=file_get_contents('https://maps.googleapis.com/maps/api/geocode/json?latlng=$latitude,$longitude&sensor=false&key=AIzaSyBvq4L0KKO9R7t16YPjQtHo806NaHfYpjc');
+$geocode=file_get_contents('http://maps.google.com/maps/api/geocode/json?latlng=$latitude,$longitude&key=AIzaSyBvq4L0KKO9R7t16YPjQtHo806NaHfYpjc;');
 $output= json_decode($geocode);
 $formattedAddress = @$output->results[0]->formatted_address;
 echo $formattedAddress;
