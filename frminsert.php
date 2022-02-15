@@ -22,7 +22,7 @@ while ($row = $data_pest_epic_a->fetch_assoc()) {
     $data_pest_epic_name_th = $row['name_th'];
 }
   
-  $url  = "http://maps.googleapis.com/maps/api/geocode/json?latlng=".$latitude.",".$longitude."&sensor=false";
+  $url  = "http://maps.googleapis.com/maps/api/geocode/json?latlng=".$latitude.",".$longitude."&sensor=false&key=AIzaSyBvq4L0KKO9R7t16YPjQtHo806NaHfYpjc";
   $json = @file_get_contents($url);
   $data = json_decode($json);
   $status = $data->status;
