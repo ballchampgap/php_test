@@ -34,7 +34,7 @@ function getAddress($latitude, $longitude)
         $address = $json->results[0]->formatted_address;
         return $address;
 }
-
+echo $addressl;
 
 
 if ($pest_epic == 1) {
@@ -84,19 +84,19 @@ ini_set('display_errors', 1);
 	curl_close( $chOne );   
 
 //บันทึกสำเร็จแจ้งเตือนและกระโดดกลับไปหน้าฟอร์ม
-if ($resultInsert) {
-    echo "<script>
-                $(document).ready(function() {
-                    Swal.fire({
-                        title: 'success',
-                        text: 'Data inserted successfully!',
-                        icon: 'success',
-                        timer: 5000,
-                        showConfirmButton: false
-                    });
-                })
-            </script>";
-    header('refresh:2; url=index.php');
-}
+// if ($resultInsert) {
+//     echo "<script>
+//                 $(document).ready(function() {
+//                     Swal.fire({
+//                         title: 'success',
+//                         text: 'Data inserted successfully!',
+//                         icon: 'success',
+//                         timer: 5000,
+//                         showConfirmButton: false
+//                     });
+//                 })
+//             </script>";
+//     header('refresh:2; url=index.php');
+// }
 
 ?>
