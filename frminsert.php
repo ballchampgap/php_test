@@ -24,7 +24,7 @@ while ($row = $data_pest_epic_a->fetch_assoc()) {
     $data_pest_epic_name_th = $row['name_th'];
 }
   
-<?php
+
 function getAddress($latitude, $longitude)
 {
         //google map api url
@@ -36,7 +36,6 @@ function getAddress($latitude, $longitude)
         $address = $json->results[0]->formatted_address;
         return $address;
 }
-?>
 
 echo $addressqlp;
 if ($pest_epic == 1) {
