@@ -70,6 +70,7 @@ ini_set('display_errors', 1);
     else{
         $sMessage .= "ชื่อศัตรูพืช:  " . $data_pest_epic_name_th . " \n";
     }
+    $sMessage .= "ที่อยู่:  " . $result . " \n";
    
 	$chOne = curl_init(); 
 	curl_setopt( $chOne, CURLOPT_URL, "https://notify-api.line.me/api/notify"); 
@@ -84,20 +85,20 @@ ini_set('display_errors', 1);
 
 	curl_close( $chOne );   
 
-//บันทึกสำเร็จแจ้งเตือนและกระโดดกลับไปหน้าฟอร์ม
-// if ($resultInsert) {
-//     echo "<script>
-//                 $(document).ready(function() {
-//                     Swal.fire({
-//                         title: 'success',
-//                         text: 'Data inserted successfully!',
-//                         icon: 'success',
-//                         timer: 5000,
-//                         showConfirmButton: false
-//                     });
-//                 })
-//             </script>";
-//     header('refresh:2; url=index.php');
-// }
+บันทึกสำเร็จแจ้งเตือนและกระโดดกลับไปหน้าฟอร์ม
+if ($resultInsert) {
+    echo "<script>
+                $(document).ready(function() {
+                    Swal.fire({
+                        title: 'success',
+                        text: 'Data inserted successfully!',
+                        icon: 'success',
+                        timer: 5000,
+                        showConfirmButton: false
+                    });
+                })
+            </script>";
+    header('refresh:2; url=index.php');
+}
 
 ?>
