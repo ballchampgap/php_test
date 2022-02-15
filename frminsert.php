@@ -11,6 +11,8 @@ $data_pest_epic = $_POST['data_pest_epic_id'];
 $latitude = $_POST['lat'];
 $longitude = $_POST['lon'];
 $descrip = $_POST['descrip'];
+$addressqlp = getAddress($latitude, $longitude);
+echo 'Address: ' . $result;
 // query planteco name_th
 $plant = mysqli_query($conn, "SELECT * FROM planteco WHERE id = '$planteco'");
 while ($row = $plant->fetch_assoc()) {
@@ -22,17 +24,28 @@ while ($row = $data_pest_epic_a->fetch_assoc()) {
     $data_pest_epic_name_th = $row['name_th'];
 }
   
-$geocode=file_get_contents('http://maps.google.com/maps/api/geocode/json?latlng=$latitude,$longitude&key=AIzaSyBvq4L0KKO9R7t16YPjQtHo806NaHfYpjc;');
-$output= json_decode($geocode);
-$formattedAddress = @$output->results[0]->formatted_address;
-echo $formattedAddress;
+<?php
+function getAddress($latitude, $longitude)
+{
+        //google map api url
+        $url = "https://maps.google.com/maps/api/geocode/json?latlng=$latitude,$longitude&key=AIzaSyBvq4L0KKO9R7t16YPjQtHo806NaHfYpjc";
+
+        // send http request
+        $geocode = file_get_contents($url);
+        $json = json_decode($geocode);
+        $address = $json->results[0]->formatted_address;
+        return $address;
+}
+?>
+
+echo $addressqlp;
 if ($pest_epic == 1) {
     $sql = "INSERT INTO epidemics (yname,plant_type,data_epidemic,lat,lon,description,address)
-    VALUE ('$pname', '$planteco_name_th', '$data_pest_epic_name_th','$latitude','$longitude','$descrip','$formattedAddress')";
+    VALUE ('$pname', '$planteco_name_th', '$data_pest_epic_name_th','$latitude','$longitude','$descrip','$addressqlp')";
     $resultInsert = mysqli_query($conn, $sql);
 } else {
     $sql = "INSERT INTO pests (yname,plant_type,data_pest,lat,lon,description,address)
-    VALUE ('$pname', '$planteco_name_th', '$data_pest_epic_name_th', '$latitude','$longitude','$descrip','$formattedAddress')";
+    VALUE ('$pname', '$planteco_name_th', '$data_pest_epic_name_th', '$latitude','$longitude','$descrip','$addressqlp')";
     $resultInsert = mysqli_query($conn, $sql);
 }
 //แจ้งเตือน
