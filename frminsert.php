@@ -21,28 +21,23 @@ $data_pest_epic_a = mysqli_query($conn, "SELECT * FROM data_pest_epic WHERE id =
 while ($row = $data_pest_epic_a->fetch_assoc()) {
     $data_pest_epic_name_th = $row['name_th'];
 }
-$addressl = getAddress($latitude, $longitude);
-function getAddress($latitude, $longitude)
-{
-        //google map api url
-        $url = "https://api.longdo.com/map/services/address?lon=$longitude&lat=$latitude&noelevation=1&key=AIzaSyBvq4L0KKO9R7t16YPjQtHo806NaHfYpjc";
-
-        // send http request
-        $geocode = file_get_contents($url);
-        $json = json_decode($geocode);
-        $address = $json->results[0]->formatted_address;
-        return $address;
-}
-echo $addressl;
+  
+  $url  = "http://maps.googleapis.com/maps/api/geocode/json?latlng=".$latitude.",".$longitude."&sensor=false";
+  $json = @file_get_contents($url);
+  $data = json_decode($json);
+  $status = $data->status;
+  $address = '';
+  
+  echo $address = $data->results[0]->formatted_address;
 
 
 if ($pest_epic == 1) {
     $sql = "INSERT INTO epidemics (yname,plant_type,data_epidemic,lat,lon,description,address)
-    VALUE ('$pname', '$planteco_name_th', '$data_pest_epic_name_th','$latitude','$longitude','$descrip','$addressl')";
+    VALUE ('$pname', '$planteco_name_th', '$data_pest_epic_name_th','$latitude','$longitude','$descrip','$address')";
     $resultInsert = mysqli_query($conn, $sql);
 } else {
     $sql = "INSERT INTO pests (yname,plant_type,data_pest,lat,lon,description,address)
-    VALUE ('$pname', '$planteco_name_th', '$data_pest_epic_name_th', '$latitude','$longitude','$descrip','$addressl')";
+    VALUE ('$pname', '$planteco_name_th', '$data_pest_epic_name_th', '$latitude','$longitude','$descrip','$address')";
     $resultInsert = mysqli_query($conn, $sql);
 }
 //แจ้งเตือน
