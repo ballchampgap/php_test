@@ -34,7 +34,7 @@ function getAddress($latitude, $longitude)
         $address = $json->results[0]->formatted_address;
         return $address;
 }
-echo $addressl;
+echo $longitude;
 
 
 if ($pest_epic == 1) {
