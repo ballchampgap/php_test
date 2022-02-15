@@ -26,7 +26,7 @@ while ($row = $data_pest_epic_a->fetch_assoc()) {
 function getAddress($latitude, $longitude)
 {
         //google map api url
-        $url = "http://maps.google.com/maps/api/geocode/json?latlng=$latitude,$longitude&key=AIzaSyBk2-SxqIx59W28JYGXv4vxkq4NkFDrJmI";
+        $url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=$latitude,$longitude&key=AIzaSyBk2-SxqIx59W28JYGXv4vxkq4NkFDrJmI";
 
         // send http request
         $geocode = file_get_contents($url);
