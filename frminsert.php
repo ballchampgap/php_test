@@ -11,7 +11,7 @@ $data_pest_epic = $_POST['data_pest_epic_id'];
 $latitude = $_POST['lat'];
 $longitude = $_POST['lon'];
 $descrip = $_POST['descrip'];
-$addressqlp = getAddress($latitude, $longitude);
+$result = getAddress($latitude, $longitude);
 echo 'Address: ' . $result;
 // query planteco name_th
 $plant = mysqli_query($conn, "SELECT * FROM planteco WHERE id = '$planteco'");
@@ -28,7 +28,7 @@ while ($row = $data_pest_epic_a->fetch_assoc()) {
 function getAddress($latitude, $longitude)
 {
         //google map api url
-        $url = "https://maps.google.com/maps/api/geocode/json?latlng=$latitude,$longitude&key=AIzaSyBvq4L0KKO9R7t16YPjQtHo806NaHfYpjc";
+        $url = "http://maps.google.com/maps/api/geocode/json?latlng=$latitude,$longitude&key=AIzaSyBvq4L0KKO9R7t16YPjQtHo806NaHfYpjc";
 
         // send http request
         $geocode = file_get_contents($url);
@@ -40,11 +40,11 @@ function getAddress($latitude, $longitude)
 echo $addressqlp;
 if ($pest_epic == 1) {
     $sql = "INSERT INTO epidemics (yname,plant_type,data_epidemic,lat,lon,description,address)
-    VALUE ('$pname', '$planteco_name_th', '$data_pest_epic_name_th','$latitude','$longitude','$descrip','$addressqlp')";
+    VALUE ('$pname', '$planteco_name_th', '$data_pest_epic_name_th','$latitude','$longitude','$descrip','$result')";
     $resultInsert = mysqli_query($conn, $sql);
 } else {
     $sql = "INSERT INTO pests (yname,plant_type,data_pest,lat,lon,description,address)
-    VALUE ('$pname', '$planteco_name_th', '$data_pest_epic_name_th', '$latitude','$longitude','$descrip','$addressqlp')";
+    VALUE ('$pname', '$planteco_name_th', '$data_pest_epic_name_th', '$latitude','$longitude','$descrip','$result')";
     $resultInsert = mysqli_query($conn, $sql);
 }
 //แจ้งเตือน
@@ -80,7 +80,7 @@ ini_set('display_errors', 1);
 	$headers = array( 'Content-type: application/x-www-form-urlencoded', 'Authorization: Bearer '.$sToken.'', );
 	curl_setopt($chOne, CURLOPT_HTTPHEADER, $headers); 
 	curl_setopt( $chOne, CURLOPT_RETURNTRANSFER, 1); 
-	$result = curl_exec( $chOne ); 
+	$result3 = curl_exec( $chOne ); 
 
 	curl_close( $chOne );   
 
