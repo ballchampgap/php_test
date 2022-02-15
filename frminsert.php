@@ -31,7 +31,7 @@ function getAddress($latitude, $longitude)
         // send http request
         $geocode = file_get_contents($url);
         $json = json_decode($geocode);
-        $address = $json->results[8]->formatted_address;
+        $address = $json->results[9]->formatted_address;
         return $address;
 }
 
