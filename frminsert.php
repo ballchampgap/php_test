@@ -28,13 +28,13 @@ while ($row = $data_pest_epic_a->fetch_assoc()) {
 function getAddress($latitude, $longitude)
 {
         //google map api url
-        $url = "http://maps.google.com/maps/api/geocode/json?latlng=$latitude,$longitude&key=AIzaSyBvq4L0KKO9R7t16YPjQtHo806NaHfYpjc";
+        $url = "https://maps.google.com/maps/api/geocode/json?latlng=$latitude,$longitude&key=AIzaSyBvq4L0KKO9R7t16YPjQtHo806NaHfYpjc";
 
         // send http request
         $geocode = file_get_contents($url);
         $json = json_decode($geocode);
-        $addressqe = $json->results[0]->formatted_address;
-        return $addressqe;
+        $address = $json->results[0]->formatted_address;
+        return $address;
 }
 
 
