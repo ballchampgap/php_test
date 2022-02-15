@@ -22,7 +22,6 @@ $data_pest_epic_a = mysqli_query($conn, "SELECT * FROM data_pest_epic WHERE id =
 while ($row = $data_pest_epic_a->fetch_assoc()) {
     $data_pest_epic_name_th = $row['name_th'];
 }
-  
 
 function getAddress($latitude, $longitude)
 {
@@ -84,7 +83,7 @@ ini_set('display_errors', 1);
 
 	curl_close( $chOne );   
 
-บันทึกสำเร็จแจ้งเตือนและกระโดดกลับไปหน้าฟอร์ม
+//บันทึกสำเร็จแจ้งเตือนและกระโดดกลับไปหน้าฟอร์ม
 if ($resultInsert) {
     echo "<script>
                 $(document).ready(function() {
