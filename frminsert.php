@@ -11,7 +11,6 @@ $data_pest_epic = $_POST['data_pest_epic_id'];
 $latitude = $_POST['lat'];
 $longitude = $_POST['lon'];
 $descrip = $_POST['descrip'];
-$addressl = getAddress($latitude, $longitude);
 // query planteco name_th
 $plant = mysqli_query($conn, "SELECT * FROM planteco WHERE id = '$planteco'");
 while ($row = $plant->fetch_assoc()) {
@@ -22,11 +21,11 @@ $data_pest_epic_a = mysqli_query($conn, "SELECT * FROM data_pest_epic WHERE id =
 while ($row = $data_pest_epic_a->fetch_assoc()) {
     $data_pest_epic_name_th = $row['name_th'];
 }
-
+$addressl = getAddress($latitude, $longitude);
 function getAddress($latitude, $longitude)
 {
         //google map api url
-        $url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=$latitude,$longitude&key=AIzaSyBvq4L0KKO9R7t16YPjQtHo806NaHfYpjc";
+        $url = "https://api.longdo.com/map/services/address?lon=$longitude&lat=$latitude&noelevation=1&key=AIzaSyBvq4L0KKO9R7t16YPjQtHo806NaHfYpjc";
 
         // send http request
         $geocode = file_get_contents($url);
