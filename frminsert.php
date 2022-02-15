@@ -22,22 +22,17 @@ while ($row = $data_pest_epic_a->fetch_assoc()) {
     $data_pest_epic_name_th = $row['name_th'];
 }
   
-  $url  = "http://maps.googleapis.com/maps/api/geocode/json?latlng=".$latitude.",".$longitude."&key=AIzaSyBvq4L0KKO9R7t16YPjQtHo806NaHfYpjc";
-  $json = @file_get_contents($url);
-  $data = json_decode($json);
-  $status = $data->status;
-  $address = '';
-  
-  echo $address = $data->results[0]->formatted_address;
-
-
+$geocode=file_get_contents('https://maps.googleapis.com/maps/api/geocode/json?latlng=$latitude,$longitude&sensor=false&key=AIzaSyBvq4L0KKO9R7t16YPjQtHo806NaHfYpjc');
+$output= json_decode($geocode);
+$formattedAddress = @$output->results[0]->formatted_address;
+echo $formattedAddress;
 if ($pest_epic == 1) {
     $sql = "INSERT INTO epidemics (yname,plant_type,data_epidemic,lat,lon,description,address)
-    VALUE ('$pname', '$planteco_name_th', '$data_pest_epic_name_th','$latitude','$longitude','$descrip','$address')";
+    VALUE ('$pname', '$planteco_name_th', '$data_pest_epic_name_th','$latitude','$longitude','$descrip','$formattedAddress')";
     $resultInsert = mysqli_query($conn, $sql);
 } else {
     $sql = "INSERT INTO pests (yname,plant_type,data_pest,lat,lon,description,address)
-    VALUE ('$pname', '$planteco_name_th', '$data_pest_epic_name_th', '$latitude','$longitude','$descrip','$address')";
+    VALUE ('$pname', '$planteco_name_th', '$data_pest_epic_name_th', '$latitude','$longitude','$descrip','$formattedAddress')";
     $resultInsert = mysqli_query($conn, $sql);
 }
 //แจ้งเตือน
