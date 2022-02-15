@@ -12,7 +12,6 @@ $latitude = $_POST['lat'];
 $longitude = $_POST['lon'];
 $descrip = $_POST['descrip'];
 $result = getAddress($latitude, $longitude);
-echo 'Address: ' . $result;
 // query planteco name_th
 $plant = mysqli_query($conn, "SELECT * FROM planteco WHERE id = '$planteco'");
 while ($row = $plant->fetch_assoc()) {
