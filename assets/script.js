@@ -50,7 +50,7 @@ $(function() {
     // on change planteco
     plantecoObject.on('change', function() {
         var plantecoId = $(this).val();
-        data_pest_epicObject.html('<option value="">--choose3--</option>');
+        data_pest_epicObject.html('<option value=""></option>');
         $.get('get_data_pest_epic.php?planteco_id=' + plantecoId, function(data) {
             var result = JSON.parse(data);
             $.each(result, function(index, item) {
