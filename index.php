@@ -50,24 +50,24 @@ $query = mysqli_query($conn, $sql);
                     <form id="mainfrom" action="frminsert.php" method="POST">
                         <div class="form">
                             <div class="form-group">
-                                <label for="pest_eco">เลือกเรื่องที่จะแจ้ง ?</label>
+                                <label for="pest_eco">กรุณาเลือกโรคระบาด หรือ ศัตรูพืช</label>
                                 <select name="pest_epic_id" id="pest_epic" class="form-control" required>
-                                    <option value="">--choose1--</option>
+                                    <option value=""></option>
                                     <?php while($result = mysqli_fetch_assoc($query)): ?>
                                     <option value="<?=$result['id']?>"><?=$result['name_th']?></option>
                                     <?php endwhile; ?>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="planteco">เลือกพืชเศรษฐกิจ ?</label>
+                                <label for="planteco">กรุณาเลือกชนิดของพืชเศรษฐกิจ</label>
                                 <select name="planteco_id" id="planteco" class="form-control" required>
-                                    <option value="">--choose2--</option>
+                                    <option value=""></option>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="data_pest_epic">เป็นอะไร ?</label>
+                                <label for="data_pest_epic">กรุณาเลือกชนิดของโรคระบาด หรือ ศัตรูพืชที่พบ</label>
                                 <select name="data_pest_epic_id" id="data_pest_epic" class="form-control" required>
-                                    <option value="">--choose3--</option>
+                                    <option value=""></option>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -79,8 +79,6 @@ $query = mysqli_query($conn, $sql);
                                 <input type="hidden" name="lon">
                                 <input type="hidden" name="pname">
                                 <button id="btn" type="submit" class="btn btn-primary mt-3">Save</button>
-                                <button id="btn" type="reset" class="btn btn-danger mt-3">Clear</button>
-
                             </div>
                         </div>
                 </div>
