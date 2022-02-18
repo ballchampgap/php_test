@@ -36,8 +36,8 @@ $(function() {
     // on change pest_epic
     pest_epicObject.on('change', function() {
         var pest_epicId = $(this).val();
-        plantecoObject.html('<option value="">--choose2--</option>');
-        data_pest_epicObject.html('<option value="">--choose3--</option>');
+        plantecoObject.html('<option value=""></option>');
+        data_pest_epicObject.html('<option value=""></option>');
         $.get('get_planteco.php?pest_epic_id=' + pest_epicId, function(data) {
             var result = JSON.parse(data);
             $.each(result, function(index, item) {
