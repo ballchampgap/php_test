@@ -15,6 +15,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous">
     </script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <?php
 include('connect.php');
@@ -34,63 +35,56 @@ $query = mysqli_query($conn, $sql);
     background-size: 100%;
 }
 </style>
-
 <body>
-    <div id="login">
-        <div class="loading"></div>
-        <div class="container my-5">
-            <div class="card">
-                <div class="card-body">
-                    <div class="text-center">
-                        <img id="pictureUrl" width="50%" class="rounded">
-                    </div><br>
-                    <h3 class="text-center text-info">
-                        <p id="displayName"></p>
-                    </h3>
-                    <form id="mainfrom" action="frminsert.php" method="POST">
-                        <div class="form">
-                            <div class="form-group">
-                                <label for="pest_eco">กรุณาเลือกโรคระบาด หรือ ศัตรูพืช</label>
-                                <select name="pest_epic_id" id="pest_epic" class="form-control" required>
-                                    <option value=""></option>
-                                    <?php while($result = mysqli_fetch_assoc($query)): ?>
-                                    <option value="<?=$result['id']?>"><?=$result['name_th']?></option>
-                                    <?php endwhile; ?>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="planteco">กรุณาเลือกชนิดของพืชเศรษฐกิจ</label>
-                                <select name="planteco_id" id="planteco" class="form-control" required>
-                                    <option value=""></option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="data_pest_epic">กรุณาเลือกชนิดของโรคระบาด หรือ ศัตรูพืชที่พบ</label>
-                                <select name="data_pest_epic_id" id="data_pest_epic" class="form-control" required>
-                                    <option value=""></option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="descrip" rows="3">รายละเอียด (ไม่บังคับ)</label><br>
-                                <textarea name="descrip" type="text" id="descrip" class="form-control" required> </textarea><br>
-                            </div>
-                            <div class="form-group">
-                                <input type="hidden" name="lat">
-                                <input type="hidden" name="lon">
-                                <input type="hidden" name="pname">
-                                <button id="btn" type="submit" class="btn btn-primary mt-3">Save</button>
-                            </div>
-                        </div>
-                </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    <!-- <script> </script> -->
+<div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <h2 class="text-center text-dark mt-5">Login Form</h2>
+        <div class="text-center mb-5 text-dark">Made with bootstrap</div>
+        <div class="card my-5">
 
-    <script src="assets/jquery.min.js"></script>
-    <script src="assets/script.js"></script>
-</body>
+          <form class="card-body cardbody-color p-lg-5">
+
+            <div class="text-center">
+              <img id="pictureUrl" class="img-fluid profile-image-pic img-thumbnail rounded-circle my-3"
+                width="200px" alt="profile">
+            </div>
+            <form id="mainfrom" action="frminsert.php" method="POST">
+            <div class="mb-3">
+            <label for="pest_eco">กรุณาเลือกโรคระบาด หรือ ศัตรูพืช</label>
+            <select name="pest_epic_id" id="pest_epic" class="form-control" required>
+            <option value=""></option>
+            <?php while($result = mysqli_fetch_assoc($query)): ?>
+            <option value="<?=$result['id']?>"><?=$result['name_th']?></option>
+            <?php endwhile; ?>
+        </select>
+            </div>
+            <div class="mb-3">
+            <label for="planteco">กรุณาเลือกชนิดของพืชเศรษฐกิจ</label>
+             <select name="planteco_id" id="planteco" class="form-control" required>
+             <option value=""></option>
+             </select></div>
+             <div class="mb-3">
+             <label for="data_pest_epic">กรุณาเลือกชนิดของโรคระบาด หรือ ศัตรูพืชที่พบ</label>
+             <select name="data_pest_epic_id" id="data_pest_epic" class="form-control" required>
+            <option value=""></option>
+            </select>
+            </div>
+            <div class="mb-3">
+            <label for="descrip" rows="3">รายละเอียด (ไม่บังคับ)</label><br>
+            <textarea name="descrip" type="text" id="descrip" class="form-control" required> </textarea><br>
+            </div>
+            <div class="text-center"><button id="btn" type="submit" class="btn btn-color px-5 mb-5 w-100">Login</button></div>
+            <input type="hidden" name="lat">
+              <input type="hidden" name="lon">
+             <input type="hidden" name="pname">
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  </body>
 
 </html>
 <?php
