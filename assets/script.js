@@ -12,7 +12,7 @@ window.onload = function() {
             elem.parentNode.removeChild(elem);
         });
     }
-    ไลน์ login & liff
+    // ไลน์ login & liff
 
     function runApp() {
         liff.getProfile().then(profile => {
