@@ -20,7 +20,7 @@ window.onload = function() {
     //         document.getElementsByName("pname")[0].value = profile.displayName;
     //     }).catch(err => console.error(err));
     // }
-    // liff.init({ liffId: "1656861185-pBP33VqE" }, () => {
+    // liff.init({ liffId: "1656912027-kL299Wg7" }, () => {
     //     if (liff.isLoggedIn()) {
     //         runApp()
     //     } else {
