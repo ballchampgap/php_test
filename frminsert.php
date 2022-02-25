@@ -2,7 +2,7 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <?php
 
-require_once 'connect.php';
+require_once "connect.php";
 
 $pname = $_POST['pname'];
 $pest_epic = $_POST['pest_epic_id'];
