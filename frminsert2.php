@@ -5,8 +5,8 @@
 require_once "connect.php";
 
 $pname = $_POST['pname'];
-$planteco = $_POST['plantecoepidemics'];
-$data_pest_epic = $_POST['dataepidemics'];
+$planteco = $_POST['plantecopests'];
+$data_pest_epic = $_POST['datapests'];
 $latitude = $_POST['lat'];
 $longitude = $_POST['lon'];
 $descrip = $_POST['descrip'];
@@ -34,9 +34,10 @@ function getAddress($latitude, $longitude)
         return $address;
 }
 
-    $sql = "INSERT INTO epidemics (yname,plant_type,data_epidemic,lat,lon,description,address,idplant,idepidemic)
-    VALUE ('$pname', '$planteco_name_th', '$data_pest_epic_name_th','$latitude','$longitude','$descrip','$result','$planteco', '$data_pest_epic')";
+    $sql = "INSERT INTO pests (yname,plant_type,data_pest,lat,lon,description,address,idplant,idpest)
+    VALUE ('$pname', '$planteco_name_th', '$data_pest_epic_name_th', '$latitude','$longitude','$descrip','$result','$planteco', '$data_pest_epic')";
     $resultInsert = mysqli_query($conn, $sql);
+
 //แจ้งเตือน
 ini_set('display_errors', 1);
 	ini_set('display_startup_errors', 1);
@@ -45,7 +46,7 @@ ini_set('display_errors', 1);
 
 	$sToken = "82DUKC5VGzG7PQw9RAbrLUooaA6oNTNSVrJ4LVXiLie";
     
-        $sMessage = "📌เเจ้งเตือนเรื่องโรคระบาด\n";
+    $sMessage = "📌เเจ้งเตือนเรื่องศัตรูพืช\n";
     
     $sMessage .= "👨‍💼ชื่อ:  " . $pname . " \n";
   
@@ -85,7 +86,7 @@ if ($resultInsert) {
                     });
                 })
             </script>";
-    header('refresh:2; url=index.php');
+    header('refresh:2; url=index2.php');
 }
 
 ?>

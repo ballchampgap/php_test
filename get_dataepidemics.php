@@ -1,6 +1,6 @@
-    <?php
+<?php
 include('connect.php');
-$sql = "SELECT * FROM data_pest_epic WHERE planteco_id={$_GET['planteco_id']}";
+$sql = "SELECT * FROM dataepidemics WHERE plantecoepidemic_id={$_GET['plantecoepidemic_id']}";
 $query = mysqli_query($conn, $sql);
 $json = array();
 while($result = mysqli_fetch_assoc($query)) {    

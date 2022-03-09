@@ -31,16 +31,16 @@ window.onload = function() {
 
 }
 $(function() {
-    var plantecoepidemicsObject = $('#plantecoepidemics');
-    var dataepidemicsObject = $('#dataepidemics');
+    var plantecopestsObject = $('#plantecopests');
+    var datapestsObject = $('#datapests');
     // on change pest_epic
-    plantecoepidemicsObject.on('change', function() {
-        var plantecoepidemicsId = $(this).val();
-        dataepidemicsObject.html('<option value=""></option>');
-        $.get('get_dataepidemics.php?plantepidemic_id=' + plantecoepidemicsId, function(data) {
+    plantecopestsObject.on('change', function() {
+        var plantecopestsId = $(this).val();
+        datapestsObject.html('<option value=""></option>');
+        $.get('get_datapests.php?plantecopests_id=' + plantecopestsId, function(data) {
             var result = JSON.parse(data);
             $.each(result, function(index, item) {
-                dataepidemicsObject.append(
+                datapestsObject.append(
                     $('<option></option>').val(item.id).html(item.name_th)
                 );
             });
