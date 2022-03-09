@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <?php
+
 include('connect.php');
 $sql = "SELECT * FROM pest_epic";
 $query = mysqli_query($conn, $sql);
