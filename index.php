@@ -45,8 +45,8 @@
         </div>
       </div>
       <div class="text-center">
-      <a href="/project/index2.php" class="btn btn-info">ศัตรูพืช</a><br><br>
-      <a href="/project/index1.php" class="btn btn-info">โรคระบาด</a>
+      <a href="index2.php" class="btn btn-info">ศัตรูพืช</a><br><br>
+      <a href="index1.php" class="btn btn-info">โรคระบาด</a>
       </div>
 
   <!-- Vendor JS Files -->
